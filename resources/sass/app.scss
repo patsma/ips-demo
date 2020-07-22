@@ -1,0 +1,50 @@
+//
+@font-face {
+    font-family: Lato-Light;
+    src: url('/fonts/Lato-Light.tff');
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url('/fonts/Lato-Bold.tff');
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+.grid {
+    max-width: 900px;
+    display: grid;
+    margin: 0 auto;
+    padding-top: 76px;
+    padding-bottom: 140px;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 70px;
+
+    * {
+        display: grid;
+    }
+}
+
+aside {
+    width: 100%;
+    height: 100%;
+    background: gray;
+    max-height: 640px;
+    min-height: 426px;
+    justify-content: center;
+    align-content: start;
+}
+
+button {
+    margin-top: 50px;
+}
