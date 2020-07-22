@@ -1,17 +1,16 @@
-@font-face {
-  font-family: Lato-Light;
-  src: url("/fonts/Lato-Light.tff");
+html {
+  box-sizing: border-box;
 }
 
-@font-face {
-  font-family: Lato-Bold;
-  src: url("/fonts/Lato-Bold.tff");
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -19,33 +18,85 @@
 body {
   max-width: 1440px;
   margin: 0 auto;
+  font-family: "Lato", sans-serif;
 }
 
 .grid {
-  max-width: 900px;
+  width: 900px;
   display: grid;
   margin: 0 auto;
   padding-top: 76px;
   padding-bottom: 140px;
-  grid-template-columns: 2fr 1fr;
   grid-column-gap: 70px;
+  grid-template-areas: "title-box title-box ." "main main aside";
 }
 
 .grid * {
   display: grid;
 }
 
-aside {
-  width: 100%;
-  height: 100%;
-  background: gray;
-  max-height: 640px;
-  min-height: 426px;
-  justify-content: center;
-  align-content: start;
+main {
+  align-items: start;
+  align-content: baseline;
+  padding-top: 26px;
+  grid-area: main;
 }
 
-button {
+.sidebar {
+  background: #F5F5F5;
+  width: 270px;
+  min-height: 426px;
+  height: 640px;
+  justify-content: center;
+  align-content: start;
+  grid-area: aside;
+}
+
+.sidebar__button {
+  background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
+  box-shadow: 0px 3px 10px rgba(104, 104, 104, 0.5);
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 18px;
   margin-top: 50px;
+  text-align: center;
+  color: #FFFFFF;
+  width: 220px;
+  height: 40px;
+  border: none;
+  align-content: center;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 0.3s all ease-out;
+  grid-area: button;
+}
+
+.sidebar__button:hover {
+  box-shadow: 0px 3px 14px #ac519c;
+}
+
+.title-box {
+  grid-area: title-box;
+  grid-gap: 16px;
+}
+
+.title-box__title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 31px;
+  color: #101010;
+}
+
+.title-box__divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
+}
+
+.paragraph {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #101010;
 }
 

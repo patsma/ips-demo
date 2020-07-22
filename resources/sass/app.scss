@@ -1,16 +1,31 @@
-//
-@font-face {
-    font-family: Lato-Light;
-    src: url('/fonts/Lato-Light.tff');
+//Fonts
+$mainFont: 'Lato', sans-serif;
+$smallFont: 15px;
+$paragraphFont: 16px;
+$bigFont: 26px;
+$boldFont: 800;
+$lightFont: 300;
+$lineHeightSmall: 18px;
+$lineHeightMedium: 24px;
+$lineHeightBig: 31px;
+
+//Colors
+$black: #101010;
+$gray: #F5F5F5;
+$white: #FFFFFF;
+$gradient: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
+$boxShadow: 0px 3px 10px rgba(104, 104, 104, 0.5);
+$boxShadowHover: 0px 3px 14px rgb(172, 81, 156);
+
+html {
+    box-sizing: border-box;
 }
 
-@font-face {
-    font-family: Lato-Bold;
-    src: url('/fonts/Lato-Bold.tff');
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 *, *:after, *:before {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -18,33 +33,87 @@
 body {
     max-width: 1440px;
     margin: 0 auto;
+    font-family: $mainFont;
 }
 
-
 .grid {
-    max-width: 900px;
+    width: 900px;
     display: grid;
     margin: 0 auto;
     padding-top: 76px;
     padding-bottom: 140px;
-    grid-template-columns: 2fr 1fr;
     grid-column-gap: 70px;
+    grid-template-areas:
+    "title-box title-box ."
+    "main main aside";
 
     * {
         display: grid;
     }
 }
 
-aside {
-    width: 100%;
-    height: 100%;
-    background: gray;
-    max-height: 640px;
-    min-height: 426px;
-    justify-content: center;
-    align-content: start;
+main {
+    align-items: start;
+    align-content: baseline;
+    padding-top: 26px;
+    grid-area: main;
 }
 
-button {
-    margin-top: 50px;
+.sidebar {
+    background: $gray;
+    width: 270px;
+    min-height: 426px;
+    height: 640px;
+    justify-content: center;
+    align-content: start;
+    grid-area: aside;
+
+    &__button {
+        background: $gradient;
+        box-shadow: $boxShadow;
+        font-weight: $boldFont;
+        font-size: $smallFont;
+        line-height: $lineHeightSmall;
+        margin-top: 50px;
+        text-align: center;
+        color: $white;
+        width: 220px;
+        height: 40px;
+        border: none;
+        align-content: center;
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: 0.3s all ease-out;
+        grid-area: button;
+
+        &:hover {
+            box-shadow: $boxShadowHover;
+        }
+    }
+}
+
+.title-box {
+    grid-area: title-box;
+    grid-gap: 16px;
+
+    &__title {
+        font-size: $bigFont;
+        font-weight: $boldFont;
+        line-height: $lineHeightBig;
+        color: $black;
+    }
+
+    &__divider {
+        height: 2px;
+        width: 100%;
+        background: $gradient;
+    }
+}
+
+
+.paragraph {
+    font-weight: $lightFont;
+    font-size: $paragraphFont;
+    line-height: $lineHeightMedium;
+    color: $black;
 }

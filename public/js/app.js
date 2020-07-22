@@ -108,6 +108,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -126,6 +130,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -622,18 +629,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "grid" }, [
-    _c("main", [_c("heading"), _vm._v(" "), _c("p")], 1),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+  return _c(
+    "div",
+    { staticClass: "grid" },
+    [_c("heading"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", [_c("button", [_vm._v("send me the tips")])])
+    return _c("main", [
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "How do you capture more interesting travel photos with your iPhone? How do you avoid\n            taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner\n            – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for\n            shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to\n            discover how to take better travel photos with your iPhone!"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("aside", { staticClass: "sidebar" }, [
+      _c("button", { staticClass: "sidebar__button" }, [
+        _vm._v("send me the tips")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -657,13 +681,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [
-    _vm._v(
-      "10 Best Photo Apps For Incredible iPhone Photography (2020 Edition)"
-    )
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title-box" }, [
+      _c("h1", { staticClass: "title-box__title" }, [
+        _vm._v(
+          "10 Best Photo Apps For Incredible iPhone Photography (2020 Edition)"
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "title-box__divider" })
+    ])
+  }
+]
 render._withStripped = true
 
 
