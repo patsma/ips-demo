@@ -176,12 +176,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       errors: [],
-      email: null
+      email: ''
     };
   },
   components: {
@@ -192,15 +194,20 @@ __webpack_require__.r(__webpack_exports__);
       console.log('clicked');
     },
     checkForm: function checkForm(e) {
-      var label = document.querySelector('.form label');
+      var labelEmail = document.getElementById('email-label');
+      var emailInput = document.getElementById('email');
+      var formInput = document.querySelector('.form__input');
       this.errors = [];
 
       if (!this.email) {
         this.errors.push(" ");
-        label.innerHTML = 'Please enter email';
+        labelEmail.innerHTML = 'Please enter email';
       } else if (!this.validEmail(this.email)) {
         this.errors.push(" ");
-        label.innerHTML = 'Please enter a valid email address';
+        labelEmail.innerHTML = 'Please enter a valid email address';
+        labelEmail.classList.add('error');
+        emailInput.classList.add('error');
+        formInput.classList.add('error-outline');
       }
 
       if (!this.errors.length) return true;
@@ -209,11 +216,6 @@ __webpack_require__.r(__webpack_exports__);
     validEmail: function validEmail(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
-    }
-  },
-  computed: {
-    isDisable: function isDisable() {
-      return this.email.length > 0;
     }
   }
 });
@@ -791,14 +793,19 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", { attrs: { for: "email" } }, [
+                _c("label", { attrs: { id: "email-label", for: "email" } }, [
                   _vm._v("Please enter your email here")
                 ])
               ]),
               _vm._v(" "),
               _c("input", {
                 staticClass: "form__button",
-                attrs: { type: "submit", value: "Send Me The Tips »" }
+                attrs: {
+                  type: "submit",
+                  value: "Send Me The Tips »",
+                  disabled: "",
+                  disabled: _vm.email.length === 0
+                }
               })
             ]
           )

@@ -300,6 +300,13 @@ body {
 
 .error {
   color: #E51323 !important;
-  outline: #E51323;
+}
+
+.error-outline {
+  outline: 1px solid #E51323 !important;
+}
+
+input[type=submit][disabled] {
+  opacity: 0.5;
 }
 

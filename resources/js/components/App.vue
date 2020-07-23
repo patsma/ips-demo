@@ -66,12 +66,14 @@
 
                     <div class="form__input">
                         <input type="text" id="email" v-model="email" required/>
-                        <label for="email">Please enter your email here</label>
+                        <label id="email-label" for="email">Please enter your email here</label>
                     </div>
                     <input
                         type="submit"
                         class="form__button"
                         value="Send Me The Tips »"
+                        disabled
+                        v-bind:disabled="email.length === 0"
                     >
                 </form>
             </div>
@@ -85,7 +87,7 @@
         data() {
             return {
                 errors: [],
-                email: null
+                email: '',
             }
         },
         components: {
@@ -96,16 +98,22 @@
                 console.log('clicked');
             },
             checkForm: function (e) {
-                const label = document.querySelector('.form label');
+                const labelEmail = document.getElementById('email-label');
+                const emailInput = document.getElementById('email');
+                const formInput = document.querySelector('.form__input');
 
                 this.errors = [];
                 if (!this.email) {
                     this.errors.push(" ");
-                    label.innerHTML = 'Please enter email';
+                    labelEmail.innerHTML = 'Please enter email';
 
                 } else if (!this.validEmail(this.email)) {
                     this.errors.push(" ");
-                    label.innerHTML = 'Please enter a valid email address';
+                    labelEmail.innerHTML = 'Please enter a valid email address';
+                    labelEmail.classList.add('error');
+                    emailInput.classList.add('error');
+                    formInput.classList.add('error-outline');
+
                 }
                 if (!this.errors.length) return true;
                 e.preventDefault();
@@ -115,11 +123,7 @@
                 return re.test(email);
             }
         },
-        computed: {
-            isDisable() {
-                return this.email.length > 0;
-            }
-        }
+
     }
 </script>
 <style>
