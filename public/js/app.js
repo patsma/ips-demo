@@ -141,14 +141,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      errors: [],
+      email: null
+    };
+  },
   components: {
     'Heading': _Heading__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     openPopUp: function openPopUp() {
       console.log('clicked');
+    },
+    checkForm: function checkForm(e) {
+      var label = document.querySelector('.form label');
+      this.errors = [];
+
+      if (!this.email) {
+        this.errors.push(" ");
+        label.innerHTML = 'Please enter email';
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push(" ");
+        label.innerHTML = 'Please enter a valid email address';
+      }
+
+      if (!this.errors.length) return true;
+      e.preventDefault();
+    },
+    validEmail: function validEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+  },
+  computed: {
+    isDisable: function isDisable() {
+      return this.email.length > 0;
     }
   }
 });
@@ -677,6 +742,67 @@ var render = function() {
           { staticClass: "sidebar__button", on: { click: _vm.openPopUp } },
           [_vm._v("send me the tips")]
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "popup" }, [
+        _c("div", { staticClass: "popup__inner" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "popup__outer" }, [
+          _c("div", { staticClass: "popup__close" }, [_vm._v("X")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "popup__steps" }, [_vm._v("Steps 1 of 2")]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "form",
+              attrs: {
+                id: "popup",
+                action: "https://iphonephotographyschool.com/",
+                method: "post",
+                novalidate: "true"
+              },
+              on: { submit: _vm.checkForm }
+            },
+            [
+              _c("div", { staticClass: "form__input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  attrs: { type: "text", id: "email", required: "" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "email" } }, [
+                  _vm._v("Please enter your email here")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form__button",
+                attrs: { type: "submit", value: "Send Me The Tips »" }
+              })
+            ]
+          )
+        ])
       ])
     ],
     1
@@ -690,7 +816,7 @@ var staticRenderFns = [
     return _c("main", { staticClass: "main" }, [
       _c("p", { staticClass: "paragraph" }, [
         _vm._v(
-          "How do you capture more interesting travel photos with your iPhone? How do you avoid\n            taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner\n            – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for\n            shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to\n            discover how to take better travel photos with your iPhone!"
+          "How do you capture more interesting travel photos with your iPhone? How do\n            you avoid\n            taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner\n            – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for\n            shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to\n            discover how to take better travel photos with your iPhone!"
         )
       ]),
       _vm._v(" "),
@@ -798,6 +924,25 @@ var staticRenderFns = [
         )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "divider divider--half " }, [
+      _c("div", { staticClass: "divider-second-half" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popup__title" }, [
+      _vm._v("Enter Your Email To Get "),
+      _c("span", [_vm._v("FREE")]),
+      _c("br"),
+      _vm._v("\n                iPhone Photography Email Tips:\n            ")
+    ])
   }
 ]
 render._withStripped = true
@@ -835,7 +980,7 @@ var staticRenderFns = [
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "title-box__divider" })
+      _c("div", { staticClass: "divider" })
     ])
   }
 ]

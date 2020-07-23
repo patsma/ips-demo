@@ -2,7 +2,8 @@
     <div class="grid">
         <heading></heading>
         <main class="main">
-            <p class="paragraph">How do you capture more interesting travel photos with your iPhone? How do you avoid
+            <p class="paragraph">How do you capture more interesting travel photos with your iPhone? How do
+                you avoid
                 taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner
                 – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for
                 shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to
@@ -41,18 +42,82 @@
         <aside class="sidebar">
             <button @click="openPopUp" class="sidebar__button">send me the tips</button>
         </aside>
+        <div class="popup">
+            <div class="popup__inner"></div>
+            <div class="popup__outer">
+                <div class="popup__close">X</div>
+                <div class="popup__steps">Steps 1 of 2</div>
+                <div class="divider divider--half ">
+                    <div class="divider-second-half"></div>
+                </div>
+                <div class="popup__title">Enter Your Email To Get <span>FREE</span><br>
+                    iPhone Photography Email Tips:
+                </div>
+
+
+                <form
+                    id="popup"
+                    class="form"
+                    @submit="checkForm"
+                    action="https://iphonephotographyschool.com/"
+                    method="post"
+                    novalidate="true"
+                >
+
+                    <div class="form__input">
+                        <input type="text" id="email" v-model="email" required/>
+                        <label for="email">Please enter your email here</label>
+                    </div>
+                    <input
+                        type="submit"
+                        class="form__button"
+                        value="Send Me The Tips »"
+                    >
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 <script>
     import Heading from './Heading'
 
     export default {
+        data() {
+            return {
+                errors: [],
+                email: null
+            }
+        },
         components: {
             'Heading': Heading
         },
         methods: {
             openPopUp() {
                 console.log('clicked');
+            },
+            checkForm: function (e) {
+                const label = document.querySelector('.form label');
+
+                this.errors = [];
+                if (!this.email) {
+                    this.errors.push(" ");
+                    label.innerHTML = 'Please enter email';
+
+                } else if (!this.validEmail(this.email)) {
+                    this.errors.push(" ");
+                    label.innerHTML = 'Please enter a valid email address';
+                }
+                if (!this.errors.length) return true;
+                e.preventDefault();
+            },
+            validEmail: function (email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+        },
+        computed: {
+            isDisable() {
+                return this.email.length > 0;
             }
         }
     }
