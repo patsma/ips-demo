@@ -2,6 +2,7 @@
 $mainFont: 'Lato', sans-serif;
 $smallFont: 15px;
 $paragraphFont: 16px;
+$mediumFont: 18px;
 $bigFont: 26px;
 $boldFont: 800;
 $lightFont: 300;
@@ -17,6 +18,8 @@ $gradient: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
 $boxShadow: 0px 3px 10px rgba(104, 104, 104, 0.5);
 $boxShadowHover: 0px 3px 14px rgb(172, 81, 156);
 
+$desktop: 940px;
+
 html {
     box-sizing: border-box;
 }
@@ -30,6 +33,11 @@ html {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 body {
     max-width: 1440px;
     margin: 0 auto;
@@ -37,36 +45,55 @@ body {
 }
 
 .grid {
-    width: 900px;
+    width: 100%;
+    padding: 4rem 2rem;
     display: grid;
     margin: 0 auto;
-    padding-top: 76px;
-    padding-bottom: 140px;
-    grid-column-gap: 70px;
     grid-template-areas:
-    "title-box title-box ."
-    "main main aside";
+    "title-box"
+    "main"
+    "aside";
+
 
     * {
         display: grid;
     }
+
+    @media screen and (min-width: $desktop) {
+        grid-column-gap: 70px;
+        padding-top: 76px;
+        padding-bottom: 140px;
+        width: 900px;
+        grid-template-areas:
+        "title-box title-box ."
+        "main main aside";
+    }
 }
 
-main {
+.main {
     align-items: start;
     align-content: baseline;
     padding-top: 26px;
+    grid-gap: 25px;
     grid-area: main;
 }
 
 .sidebar {
     background: $gray;
-    width: 270px;
+    width: 100%;
     min-height: 426px;
     height: 640px;
     justify-content: center;
     align-content: start;
     grid-area: aside;
+    margin-top: 33px;
+
+    @media screen and (min-width: $desktop) {
+        margin-top: unset;
+        width: 270px;
+        min-height: 426px;
+        height: 640px;
+    }
 
     &__button {
         background: $gradient;
@@ -85,6 +112,7 @@ main {
         cursor: pointer;
         transition: 0.3s all ease-out;
         grid-area: button;
+        outline: 1px solid rgb(81, 161, 172);
 
         &:hover {
             box-shadow: $boxShadowHover;
@@ -110,6 +138,12 @@ main {
     }
 }
 
+.subtitle {
+    font-weight: $boldFont;
+    font-size: $mediumFont;
+    line-height: $lineHeightMedium;
+    color: $black;
+}
 
 .paragraph {
     font-weight: $lightFont;
@@ -117,3 +151,10 @@ main {
     line-height: $lineHeightMedium;
     color: $black;
 }
+
+.img {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+

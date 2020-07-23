@@ -112,10 +112,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     'Heading': _Heading__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    openPopUp: function openPopUp() {
+      console.log('clicked');
+    }
   }
 });
 
@@ -632,7 +666,19 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "grid" },
-    [_c("heading"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
+    [
+      _c("heading"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("aside", { staticClass: "sidebar" }, [
+        _c(
+          "button",
+          { staticClass: "sidebar__button", on: { click: _vm.openPopUp } },
+          [_vm._v("send me the tips")]
+        )
+      ])
+    ],
     1
   )
 }
@@ -641,21 +687,115 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", [
+    return _c("main", { staticClass: "main" }, [
       _c("p", { staticClass: "paragraph" }, [
         _vm._v(
           "How do you capture more interesting travel photos with your iPhone? How do you avoid\n            taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner\n            – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for\n            shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to\n            discover how to take better travel photos with your iPhone!"
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "sidebar" }, [
-      _c("button", { staticClass: "sidebar__button" }, [
-        _vm._v("send me the tips")
+      ]),
+      _vm._v(" "),
+      _c("picture", { staticClass: "img" }, [
+        _c("source", {
+          attrs: {
+            media:
+              "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
+            srcset: "img/img@3x.jpg"
+          }
+        }),
+        _vm._v(" "),
+        _c("source", {
+          attrs: {
+            media:
+              "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 120dpi)",
+            srcset: "img/img@2x.jpg"
+          }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          attrs: { src: "img/img.jpg", alt: "Plane above buildings" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("h2", { staticClass: "subtitle" }, [
+        _vm._v(
+          "1. Research Your Destination To Find The Best Photo Opportunities"
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "Before your trip, I recommend researching the destination to find the most interesting\n            photo opportunities."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "I always research the location I’m traveling to. I do this extensively and\n            obsessively!"
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "It’s up to you how much research you do. But you should definitely spend a bit of time\n            looking up some great places to take pictures."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v("So, what kind of research can you do?")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "First, you could search for photos that other people have taken at the locations you’re\n            planning to visit."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "Search on Instagram or Google to get an idea of the kinds of photos people take\n            there."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", { staticClass: "subtitle" }, [
+        _vm._v(
+          "2. Capture Your Journey To Tell The Complete Story Of Your Travels"
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "Travel photography isn’t just about photographing the destination."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "For a more complete photographic story, capture your journey to and from the location\n            you’re visiting."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "If you’re traveling by plane, try to get a window seat where you have a view of the\n            wing or propeller."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "And of course, you could capture a beautiful aerial view of clouds, mountains, or city\n            lights as you’re flying above."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "Your journey will often involve several different types of transport. And they all\n            offer great photo opportunities."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph" }, [
+        _vm._v(
+          "Whether you’re traveling by car, taxi, bus, train, boat, or plane, try to capture some\n            interesting photos."
+        )
       ])
     ])
   }

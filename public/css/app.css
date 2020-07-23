@@ -15,6 +15,11 @@ html {
   margin: 0;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -22,34 +27,53 @@ body {
 }
 
 .grid {
-  width: 900px;
+  width: 100%;
+  padding: 4rem 2rem;
   display: grid;
   margin: 0 auto;
-  padding-top: 76px;
-  padding-bottom: 140px;
-  grid-column-gap: 70px;
-  grid-template-areas: "title-box title-box ." "main main aside";
+  grid-template-areas: "title-box" "main" "aside";
 }
 
 .grid * {
   display: grid;
 }
 
-main {
+@media screen and (min-width: 940px) {
+  .grid {
+    grid-column-gap: 70px;
+    padding-top: 76px;
+    padding-bottom: 140px;
+    width: 900px;
+    grid-template-areas: "title-box title-box ." "main main aside";
+  }
+}
+
+.main {
   align-items: start;
   align-content: baseline;
   padding-top: 26px;
+  grid-gap: 25px;
   grid-area: main;
 }
 
 .sidebar {
   background: #F5F5F5;
-  width: 270px;
+  width: 100%;
   min-height: 426px;
   height: 640px;
   justify-content: center;
   align-content: start;
   grid-area: aside;
+  margin-top: 33px;
+}
+
+@media screen and (min-width: 940px) {
+  .sidebar {
+    margin-top: unset;
+    width: 270px;
+    min-height: 426px;
+    height: 640px;
+  }
 }
 
 .sidebar__button {
@@ -69,6 +93,7 @@ main {
   cursor: pointer;
   transition: 0.3s all ease-out;
   grid-area: button;
+  outline: 1px solid #51a1ac;
 }
 
 .sidebar__button:hover {
@@ -93,10 +118,23 @@ main {
   background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
 }
 
+.subtitle {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+  color: #101010;
+}
+
 .paragraph {
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
   color: #101010;
+}
+
+.img {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  width: 100%;
 }
 
