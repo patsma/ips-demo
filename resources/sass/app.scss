@@ -194,6 +194,7 @@ body {
     left: 0;
     top: 0;
     display: grid;
+    transition: 0.3s all ease-in-out;
 
     &__steps {
         font-weight: $lightFont;
@@ -208,13 +209,18 @@ body {
 
     &__title {
         font-weight: $boldFont;
-        font-size: 23px;
         line-height: 28px;
+        font-size: 20px;
         align-items: center;
         text-align: center;
-        width: 440px;
+        width: 319px;
         color: #464646;
         display: block;
+        @media screen and (min-width: $desktop) {
+            width: 440px;
+            font-size: 23px;
+
+        }
 
         span {
             display: inline;
@@ -238,24 +244,33 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 570px;
-        height: 310px;
-        grid-gap: 20px;
+        width: 355px;
+        height: 272px;
+        grid-gap: 10px;
         background: #FFFFFF;
         align-content: center;
         justify-items: center;
         justify-content: center;
+        @media screen and (min-width: $desktop) {
+            width: 570px;
+            height: 310px;
+            grid-gap: 20px;
+
+        }
     }
 
     &__close {
         font-weight: $boldFont;
-        font-size: 38px;
+        font-size: 29px;
         line-height: 46px;
         color: #464646;
         position: absolute;
         right: 14px;
         top: 0;
         cursor: pointer;
+        @media screen and (min-width: $desktop) {
+            font-size: 38px;
+        }
     }
 }
 
@@ -263,7 +278,7 @@ body {
 
 
     &__button {
-        width: 440px;
+        width: 320px;
         background: $gradient;
         box-shadow: $boxShadow;
         font-weight: $boldFont;
@@ -280,6 +295,10 @@ body {
         transition: 0.3s all ease-out;
         outline: 1px solid rgb(81, 161, 172);
 
+        @media screen and (min-width: $desktop) {
+            width: 440px;
+
+        }
 
         &:hover {
             box-shadow: $boxShadowHover;
@@ -287,7 +306,7 @@ body {
     }
 
     &__input {
-        width: 440px;
+        width: 320px;
         height: 54px;
         position: relative;
         transition: 0.3s all ease-in-out;
@@ -330,14 +349,19 @@ body {
 
         input:focus ~ label,
         input:valid ~ label {
-
-
             top: -14px;
             font-size: 12px;
         }
 
+        @media screen and (min-width: $desktop) {
+            width: 440px;
+            height: 54px;
+        }
     }
 }
+
+
+//GLOBAL
 
 .error {
     color: $red !important;
@@ -349,4 +373,9 @@ body {
 
 input[type=submit][disabled] {
     opacity: 0.5;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

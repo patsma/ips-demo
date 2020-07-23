@@ -40,12 +40,12 @@
                 interesting photos.</p>
         </main>
         <aside class="sidebar">
-            <button @click="openPopUp" class="sidebar__button">send me the tips</button>
+            <button @click="togglePopup" class="sidebar__button">send me the tips</button>
         </aside>
-        <div class="popup">
+        <div class="popup hidden">
             <div class="popup__inner"></div>
             <div class="popup__outer">
-                <div class="popup__close">X</div>
+                <div @click="togglePopup" class="popup__close">X</div>
                 <div class="popup__steps">Steps 1 of 2</div>
                 <div class="divider divider--half ">
                     <div class="divider-second-half"></div>
@@ -94,8 +94,9 @@
             'Heading': Heading
         },
         methods: {
-            openPopUp() {
-                console.log('clicked');
+            togglePopup() {
+                const popup = document.querySelector('.popup');
+                popup.classList.toggle('hidden');
             },
             checkForm: function (e) {
                 const labelEmail = document.getElementById('email-label');
@@ -118,7 +119,7 @@
                 if (!this.errors.length) return true;
                 e.preventDefault();
             },
-            validEmail: function (email) {
+            validEmail: email => {
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
             }

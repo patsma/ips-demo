@@ -168,6 +168,7 @@ body {
   left: 0;
   top: 0;
   display: grid;
+  transition: 0.3s all ease-in-out;
 }
 
 .popup__steps {
@@ -180,13 +181,20 @@ body {
 
 .popup__title {
   font-weight: 800;
-  font-size: 23px;
   line-height: 28px;
+  font-size: 20px;
   align-items: center;
   text-align: center;
-  width: 440px;
+  width: 319px;
   color: #464646;
   display: block;
+}
+
+@media screen and (min-width: 940px) {
+  .popup__title {
+    width: 440px;
+    font-size: 23px;
+  }
 }
 
 .popup__title span {
@@ -209,18 +217,26 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 570px;
-  height: 310px;
-  grid-gap: 20px;
+  width: 355px;
+  height: 272px;
+  grid-gap: 10px;
   background: #FFFFFF;
   align-content: center;
   justify-items: center;
   justify-content: center;
 }
 
+@media screen and (min-width: 940px) {
+  .popup__outer {
+    width: 570px;
+    height: 310px;
+    grid-gap: 20px;
+  }
+}
+
 .popup__close {
   font-weight: 800;
-  font-size: 38px;
+  font-size: 29px;
   line-height: 46px;
   color: #464646;
   position: absolute;
@@ -229,8 +245,14 @@ body {
   cursor: pointer;
 }
 
+@media screen and (min-width: 940px) {
+  .popup__close {
+    font-size: 38px;
+  }
+}
+
 .form__button {
-  width: 440px;
+  width: 320px;
   background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
   box-shadow: 0px 3px 10px rgba(104, 104, 104, 0.5);
   font-weight: 800;
@@ -248,12 +270,18 @@ body {
   outline: 1px solid #51a1ac;
 }
 
+@media screen and (min-width: 940px) {
+  .form__button {
+    width: 440px;
+  }
+}
+
 .form__button:hover {
   box-shadow: 0px 3px 14px #ac519c;
 }
 
 .form__input {
-  width: 440px;
+  width: 320px;
   height: 54px;
   position: relative;
   transition: 0.3s all ease-in-out;
@@ -298,6 +326,13 @@ body {
   font-size: 12px;
 }
 
+@media screen and (min-width: 940px) {
+  .form__input {
+    width: 440px;
+    height: 54px;
+  }
+}
+
 .error {
   color: #E51323 !important;
 }
@@ -308,5 +343,10 @@ body {
 
 input[type=submit][disabled] {
   opacity: 0.5;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 

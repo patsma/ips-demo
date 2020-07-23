@@ -190,8 +190,9 @@ __webpack_require__.r(__webpack_exports__);
     'Heading': _Heading__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    openPopUp: function openPopUp() {
-      console.log('clicked');
+    togglePopup: function togglePopup() {
+      var popup = document.querySelector('.popup');
+      popup.classList.toggle('hidden');
     },
     checkForm: function checkForm(e) {
       var labelEmail = document.getElementById('email-label');
@@ -741,16 +742,20 @@ var render = function() {
       _c("aside", { staticClass: "sidebar" }, [
         _c(
           "button",
-          { staticClass: "sidebar__button", on: { click: _vm.openPopUp } },
+          { staticClass: "sidebar__button", on: { click: _vm.togglePopup } },
           [_vm._v("send me the tips")]
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "popup" }, [
+      _c("div", { staticClass: "popup hidden" }, [
         _c("div", { staticClass: "popup__inner" }),
         _vm._v(" "),
         _c("div", { staticClass: "popup__outer" }, [
-          _c("div", { staticClass: "popup__close" }, [_vm._v("X")]),
+          _c(
+            "div",
+            { staticClass: "popup__close", on: { click: _vm.togglePopup } },
+            [_vm._v("X")]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "popup__steps" }, [_vm._v("Steps 1 of 2")]),
           _vm._v(" "),
